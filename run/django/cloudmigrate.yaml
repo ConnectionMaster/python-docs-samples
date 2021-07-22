@@ -54,14 +54,14 @@ steps:
         "collectstatic",
         "--verbosity",
         "2",
-        "--no-input"
+        "--no-input",
       ]
 
 substitutions:
   _INSTANCE_NAME: django-instance
   _REGION: us-central1
   _SERVICE_NAME: polls-service
-  _SECRET_SETTINGS_NAME: django-settings
+  _SECRET_SETTINGS_NAME: django_settings
 
 images:
   - "gcr.io/${PROJECT_ID}/${_SERVICE_NAME}"

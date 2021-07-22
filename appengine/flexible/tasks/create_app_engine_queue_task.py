@@ -33,6 +33,7 @@ def create_task(project, queue, location, payload=None, in_seconds=None):
     # queue = 'my-appengine-queue'
     # location = 'us-central1'
     # payload = 'hello' or {'param': 'value'} for application/json
+    # in_seconds = None
 
     # Construct the fully qualified queue name.
     parent = client.queue_path(project, location, queue)
@@ -49,7 +50,7 @@ def create_task(project, queue, location, payload=None, in_seconds=None):
             # Convert dict to JSON string
             payload = json.dumps(payload)
             # specify http content-type to application/json
-            task["http_request"]["headers"] = {"Content-type": "application/json"}
+            task["app_engine_http_request"]["headers"] = {"Content-type": "application/json"}
         # The API expects a payload of type bytes.
         converted_payload = payload.encode()
 
